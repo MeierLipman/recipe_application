@@ -210,7 +210,7 @@ def admin_users():
 
 @app.route('/admin/add-user', methods=['GET', 'POST'])
 @login_required
-@roles_required('admin')
+@roles_required('user')
 def admin_add_user():
     if request.method == 'POST':
         form = request.form
