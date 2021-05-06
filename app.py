@@ -72,11 +72,11 @@ class User:
     def get_id(self):
         return self.username
 
-'''
+
     @staticmethod
     def check_password(password_hash, password):
         return check_password_hash(password_hash, password)
-'''
+
 
 @app.errorhandler(404)
 def not_found(e):
