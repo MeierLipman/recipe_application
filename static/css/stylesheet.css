@@ -2,3 +2,9 @@ label.print{
   font-style: italic;
   font-weight: bold;
 }
+body {
+	background-image: url("Cookbook.png");
+	    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;;
+}
