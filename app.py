@@ -131,30 +131,8 @@ def about():
     return render_template('about.html')
 
 # unauthenticated users can see a message on the registration page
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/register')
 def register():
-    if request.method == 'POST':
-        form = request.form
-        
-        password = request.form['password']
-        pwd_hash = bcrypt.generate_password_hash(password)
-        
-        email = users.find_one({"email": request.form['email']})
-        if email:
-            flash('This email is already registered.', 'warning')
-            return 'This email has already been registered.'
-        new_user = {
-            'first_name': form['first_name'],
-            'last_name': form['last_name'],
-            'email': form['email'],
-            'password': pwd_hash,
-            'role': form['role'],
-            'date_added': datetime.datetime.now(),
-            'date_modified': datetime.datetime.now()
-        }
-        users.insert_one(new_user)
-        flash(new_user['email'] + ' user has been added.', 'success')
-        return (url_for('register'))
     return render_template('register.html')
 
 # unauthenticated users can view the login page
