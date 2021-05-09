@@ -154,9 +154,8 @@ def register():
         }
         users.insert_one(new_user)
         flash(new_user['email'] + ' user has been added.', 'success')
-        return redirect(url_for('admin_users'))
-    return render_template('user-admin.html', all_roles=roles.find(), all_users=users.find())
-    # return 'Contact the site administrator for an account.'
+        return redirect(url_for("index"))
+    # return render_template('user-admin.html', all_roles=roles.find(), all_users=users.find())
 
 # unauthenticated users can view the login page
 @app.route('/login', methods=['GET', 'POST'])
