@@ -128,7 +128,7 @@ def search():
 # unauthenticated users can view the about page
 @app.route('/about')
 def about():
-    return render_template('about')
+    return render_template('about.html')
 
 # unauthenticated users can see a message on the registration page
 @app.route('/register', methods=['GET', 'POST'])
@@ -154,10 +154,8 @@ def register():
         }
         users.insert_one(new_user)
         flash(new_user['email'] + ' user has been added.', 'success')
-        return redirect(url_for('register'))
-    return redirect(url_for('register'))
-    # return redirect(url_for('admin_users'))
-    # return render_template('user-admin.html', all_roles=roles.find(), all_users=users.find())
+        return (url_for('register'))
+    return render_template('register.html')
 
 # unauthenticated users can view the login page
 @app.route('/login', methods=['GET', 'POST'])
