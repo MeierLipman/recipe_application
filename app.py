@@ -128,7 +128,8 @@ def search():
 # unauthenticated users can view the about page
 @app.route('/about')
 def about():
-    return redirect(url_for('about'))
+    if request.method == 'POST':
+    return (url_for('about'))
 
 # unauthenticated users can see a message on the registration page
 @app.route('/register')
